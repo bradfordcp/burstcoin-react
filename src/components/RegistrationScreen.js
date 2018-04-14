@@ -73,6 +73,9 @@ class RegistrationScreen extends React.Component {
             </div>
           </div>
         </div>
+        <div id="custom_passphrase_link">
+          <a href="#" todo="BRS.registerUserDefinedAccount();" data-i18n="choose_own_passphrase">Want to choose your own passphrase? Click here.</a>
+        </div>
       </div>
     );
   }

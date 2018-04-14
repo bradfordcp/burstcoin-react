@@ -16,6 +16,7 @@ class WelcomeScreen extends React.Component {
             
             <Link to="/lock" id="registration_cancel" className="btn btn-primary">Returning User?</Link>
             <Link to="/register" id="registration_continue" className="btn btn-success">New? Create Your Account!</Link>
+            <Link to="/dashboard" id="dashboard_tmp" className="btn">Dashboard</Link>
           </div>
         </div>
       </div>
