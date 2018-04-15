@@ -1,4 +1,5 @@
 import React from 'react';
+import SidebarLink from './SidebarLink';
 
 class Sidebar extends React.Component {
   render () {
@@ -31,63 +32,117 @@ class Sidebar extends React.Component {
           </form>
           
           <ul className="sidebar-menu" data-widget="tree">
-            <li>
-              <a href="#"><i className="fa fa-dashboard"></i> <span>Dashboard</span></a>
-            </li>
-            <li className="treeview">
-              <a href="#"><i className="fa fa-briefcase"></i> <span>Transactions</span></a>
-              <ul className="treeview-menu">
-                <li><a href="#"><i className="fa fa-circle-o"></i> Escrows</a></li>
-                <li><a href="#"><i className="fa fa-circle-o"></i> Subscriptions</a></li>
-                <li><a href="#"><i className="fa fa-circle-o"></i> ATs (Smart Contracts)</a></li>
-              </ul>
-            </li>
-            <li className="treeview">
-              <a href="#"><i className="fa fa-signal"></i> <span>Asset Exchange</span></a>
-              <ul className="treeview-menu">
-                <li><a href="#"><i className="fa fa-circle-o"></i> My Assets</a></li>
-                <li><a href="#"><i className="fa fa-circle-o"></i> Open Orders</a></li>
-                <li><a href="#"><i className="fa fa-circle-o"></i> Issue Asset</a></li>
-                <li><a href="#"><i className="fa fa-circle-o"></i> Payout Dividends</a></li>
-              </ul>
-            </li>
-            <li className="treeview">
-              <a href="#"><i className="fa fa-money"></i> <span>Crowdfunding</span></a>
-              <ul className="treeview-menu">
-                <li><a href="#"><i className="fa fa-circle-o"></i> Active</a></li>
-                <li><a href="#"><i className="fa fa-circle-o"></i> Funded</a></li>
-                <li><a href="#"><i className="fa fa-circle-o"></i> Not Funded</a></li>
-                <li><a href="#"><i className="fa fa-circle-o"></i> Hidden CFs</a></li>
-              </ul>
-            </li>
-            <li className="treeview">
-              <a href="#"><i className="fa fa-shopping-cart"></i> <span>Marketplace</span></a>
-              <ul className="treeview-menu">
-                <li><a href="#"><i className="fa fa-circle-o"></i> Search Marketplace</a></li>
-                <li><a href="#"><i className="fa fa-circle-o"></i> Purchased Products</a></li>
-              </ul>
-            </li>
-            <li className="treeview">
-              <a href="#"><i className="fa fa-shopping-cart"></i> <span>My Store</span></a>
-              <ul className="treeview-menu">
-                <li><a href="#"><i className="fa fa-circle-o"></i> My Products For Sale</a></li>
-                <li><a href="#"><i className="fa fa-circle-o"></i> My Pending Orders</a></li>
-                <li><a href="#"><i className="fa fa-circle-o"></i> My Completed Orders</a></li>
-                <li><a href="#"><i className="fa fa-circle-o"></i> List Products for Sale</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#"><i className="fa fa-user"></i> <span>Contacts</span></a>
-            </li>
-            <li>
-              <a href="#"><i className="fa fa-envelope"></i> <span>Messages</span></a>
-            </li>
-            <li>
-              <a href="#"><i className="fa fa-bookmark"></i> <span>Aliases</span></a>
-            </li>
-            <li>
-              <a href="#"><i className="fa fa-bars"></i> <span>Blocks</span></a>
-            </li>
+            <SidebarLink to="/dashboard" 
+              linkText={(
+                <React.Fragment>
+                  <i className="fa fa-dashboard"></i> <span>Dashboard</span>
+                </React.Fragment>
+              )} />
+
+            <SidebarLink 
+              to="/transactions" 
+              linkText={(
+                <React.Fragment>
+                  <i className="fa fa-briefcase"></i> <span>Transactions</span><span className="pull-right-container"><i className="fa fa-angle-left pull-right"></i></span>
+                </React.Fragment>
+              )} 
+              linkChildren={(
+                <React.Fragment>
+                  <SidebarLink to="/transactions/escrows" linkText={(<React.Fragment><i className="fa fa-angle-double-right"></i> Escrows</React.Fragment>)} />
+                  <SidebarLink to="/transactions/subscriptions" linkText={(<React.Fragment><i className="fa fa-angle-double-right"></i> Subscriptions</React.Fragment>)} />
+                  <SidebarLink to="/transactions/ats" linkText={(<React.Fragment><i className="fa fa-angle-double-right"></i> ATs (Smart Contracts)</React.Fragment>)} />
+                </React.Fragment>
+              )} />
+            
+            <SidebarLink 
+              to="/assets" 
+              linkText={(
+                <React.Fragment>
+                  <i className="fa fa-signal"></i> <span>Asset Exchange</span><span className="pull-right-container"><i className="fa fa-angle-left pull-right"></i></span>
+                </React.Fragment>
+              )} 
+              linkChildren={(
+                <React.Fragment>
+                  <SidebarLink to="/assets/mine" linkText={(<React.Fragment><i className="fa fa-angle-double-right"></i> My Assets</React.Fragment>)} />
+                  <SidebarLink to="/assets/open" linkText={(<React.Fragment><i className="fa fa-angle-double-right"></i> Open Orders</React.Fragment>)} />
+                  <SidebarLink to="/assets/issue" linkText={(<React.Fragment><i className="fa fa-angle-double-right"></i> Issue Asset</React.Fragment>)} />
+                  <SidebarLink to="/assets/dividends" linkText={(<React.Fragment><i className="fa fa-angle-double-right"></i> Payout Dividends</React.Fragment>)} />
+                </React.Fragment>
+              )} />
+            
+            <SidebarLink 
+              to="/crowdfunding" 
+              linkText={(
+                <React.Fragment>
+                  <i className="fa fa-money"></i> <span>Crowdfunding</span><span className="pull-right-container"><i className="fa fa-angle-left pull-right"></i></span>
+                </React.Fragment>
+              )} 
+              linkChildren={(
+                <React.Fragment>
+                  <SidebarLink to="/crowdfunding/active" linkText={(<React.Fragment><i className="glyphicon glyphicon-flash"></i> Active</React.Fragment>)} />
+                  <SidebarLink to="/crowdfunding/funded" linkText={(<React.Fragment><i className="glyphicon glyphicon-ok-circle"></i> Funded</React.Fragment>)} />
+                  <SidebarLink to="/crowdfunding/not_funded" linkText={(<React.Fragment><i className="glyphicon glyphicon-remove-circle"></i> Not Funded</React.Fragment>)} />
+                  <SidebarLink to="/crowdfunding/hidden" linkText={(<React.Fragment><i className="fa fa-angle-double-right"></i> Hidden CFs</React.Fragment>)} />
+                </React.Fragment>
+              )} />
+            
+            <SidebarLink 
+              to="/marketplace" 
+              linkText={(
+                <React.Fragment>
+                  <i className="fa fa-shopping-cart"></i> <span>Marketplace</span><span className="pull-right-container"><i className="fa fa-angle-left pull-right"></i></span>
+                </React.Fragment>
+              )} 
+              linkChildren={(
+                <React.Fragment>
+                  <SidebarLink to="/marketplace/search" linkText={(<React.Fragment><i className="fa fa-circle-o"></i> Search Marketplace</React.Fragment>)} />
+                  <SidebarLink to="/marketplace/purchased" linkText={(<React.Fragment><i className="fa fa-circle-o"></i> Purchased Products</React.Fragment>)} />
+                </React.Fragment>
+              )} />
+            
+            <SidebarLink 
+              to="/marketplace" 
+              linkText={(
+                <React.Fragment>
+                  <i className="fa fa-shopping-cart"></i> <span>My Store</span><span className="pull-right-container"><i className="fa fa-angle-left pull-right"></i></span>
+                </React.Fragment>
+              )} 
+              linkChildren={(
+                <React.Fragment>
+                  <SidebarLink to="/my_store/products/mine" linkText={(<React.Fragment><i className="fa fa-circle-o"></i> My Products for Sale</React.Fragment>)} />
+                  <SidebarLink to="/my_store/orders/pending" linkText={(<React.Fragment><i className="fa fa-circle-o"></i> My Pending Orders</React.Fragment>)} />
+                  <SidebarLink to="/my_store/orders/completed" linkText={(<React.Fragment><i className="fa fa-circle-o"></i> My Completed Orders</React.Fragment>)} />
+                  <SidebarLink to="/my_store/products/list" linkText={(<React.Fragment><i className="fa fa-circle-o"></i> List Products for Sale</React.Fragment>)} />
+                </React.Fragment>
+              )} />
+            
+            <SidebarLink to="/contacts" 
+              linkText={(
+                <React.Fragment>
+                  <i className="fa fa-user"></i> <span>Contacts</span>
+                </React.Fragment>
+              )} />
+            
+            <SidebarLink to="/messages" 
+              linkText={(
+                <React.Fragment>
+                  <i className="fa fa-envelope"></i> <span>Messages</span>
+                </React.Fragment>
+              )} />
+            
+            <SidebarLink to="/aliases" 
+              linkText={(
+                <React.Fragment>
+                  <i className="fa fa-bookmark"></i> <span>Aliases</span>
+                </React.Fragment>
+              )} />
+            
+            <SidebarLink to="/blocks" 
+              linkText={(
+                <React.Fragment>
+                  <i className="fa fa-bars"></i> <span>Blocks</span>
+                </React.Fragment>
+              )} />
           </ul>
         </section>
         

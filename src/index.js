@@ -25,6 +25,7 @@ import WelcomeScreen from './components/WelcomeScreen';
 import LockScreen from './components/LockScreen';
 import RegistrationScreen from './components/RegistrationScreen';
 import DashboardScreen from './components/DashboardScreen';
+import TransactionsScreen from './components/TransactionsScreen';
 
 ReactDOM.render(
   <Router>
@@ -33,6 +34,7 @@ ReactDOM.render(
       <Route exact path="/lock" component={LockScreen} />
       <Route exact path="/register" component={RegistrationScreen} />
       <Route exact path="/dashboard" component={DashboardScreen} />
+      <Route exact path="/transactions" component={TransactionsScreen} />
     </Switch>
   </Router>
   ,
